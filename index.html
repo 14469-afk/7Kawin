@@ -4,170 +4,266 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Portfolio | แนะนำตัวเอง</title>
+<title>Engineering Portfolio</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Tahoma, sans-serif;
-    }
 
-    body {
-        background: #0b0f19;
-        color: #e5e7eb;
-        line-height: 1.8;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Tahoma,sans-serif;
+}
 
-    header {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background:
-        linear-gradient(
-            rgba(0,0,0,.7),
-            rgba(0,0,0,.9)
-        ),
-        url("background.jpg");
-
-        background-size: cover;
-        background-position: center;
-    }
-
-    header h1 {
-        font-size: 55px;
-        color: #38bdf8;
-        letter-spacing: 2px;
-    }
-
-    header p {
-        font-size: 20px;
-        color: #cbd5e1;
-        margin-top: 15px;
-    }
-
-    .btn {
-        display: inline-block;
-        margin-top: 30px;
-        padding: 12px 30px;
-        border-radius: 30px;
-        background: #38bdf8;
-        color: #020617;
-        text-decoration: none;
-        font-weight: bold;
-        transition: .3s;
-    }
-
-    .btn:hover {
-        background: #0ea5e9;
-        transform: translateY(-3px);
-    }
+body{
+    background:#0a0a0a;
+    color:#e5e5e5;
+    line-height:1.8;
+}
 
 
-    nav {
-        position: sticky;
-        top:0;
-        background:#020617;
-        padding:15px;
-        text-align:center;
-        z-index:10;
-        border-bottom:1px solid #1e293b;
-    }
+/* HEADER */
 
-    nav a {
-        color:#94a3b8;
-        margin:0 15px;
-        text-decoration:none;
-    }
+header{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 
-    nav a:hover {
-        color:#38bdf8;
-    }
+    background:
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.95)
+    ),
+    url("engineering-bg.jpg");
 
-
-    .container {
-        width:85%;
-        max-width:1100px;
-        margin:auto;
-        padding:40px 0;
-    }
+    background-size:cover;
+}
 
 
-    section {
-        background:#111827;
-        padding:35px;
-        margin-bottom:30px;
-        border-radius:15px;
-        border:1px solid #1f2937;
-        box-shadow:0 10px 30px rgba(0,0,0,.4);
-    }
+header h1{
+    font-size:60px;
+    color:#ff8c00;
+    letter-spacing:3px;
+}
 
 
-    h2 {
-        color:#38bdf8;
-        margin-bottom:20px;
-        border-left:5px solid #38bdf8;
-        padding-left:15px;
-    }
+header p{
+    margin-top:15px;
+    font-size:22px;
+    color:#ccc;
+}
 
 
-    .profile {
-        display:flex;
-        align-items:center;
-        gap:30px;
-    }
+.line{
+    width:120px;
+    height:4px;
+    background:#ff8c00;
+    margin:25px auto;
+}
 
 
-    .profile img {
-        width:170px;
-        height:170px;
-        border-radius:50%;
-        object-fit:cover;
-        border:4px solid #38bdf8;
-    }
+
+/* NAV */
+
+nav{
+
+    position:sticky;
+    top:0;
+
+    background:#111;
+    padding:15px;
+
+    text-align:center;
+
+    border-bottom:1px solid #333;
+
+}
 
 
-    ul {
-        margin-left:25px;
-    }
+nav a{
+
+    color:#aaa;
+    text-decoration:none;
+    margin:0 20px;
+
+}
 
 
-    .card {
-        background:#0f172a;
-        padding:20px;
-        border-radius:10px;
-        margin-top:15px;
-        border:1px solid #334155;
-    }
+nav a:hover{
+
+    color:#ff8c00;
+
+}
 
 
-    footer {
-        text-align:center;
-        padding:25px;
-        background:#020617;
-        color:#64748b;
-    }
+
+/* CONTENT */
+
+.container{
+
+    width:85%;
+    max-width:1100px;
+    margin:auto;
+    padding:50px 0;
+
+}
 
 
-    @media(max-width:700px){
 
-        header h1 {
-            font-size:35px;
-        }
+section{
 
-        .profile {
-            flex-direction:column;
-            text-align:center;
-        }
+    background:#141414;
 
-        nav a {
-            display:block;
-            margin:8px;
-        }
-    }
+    padding:35px;
+
+    margin-bottom:35px;
+
+    border-left:5px solid #ff8c00;
+
+    box-shadow:
+    0 0 20px rgba(255,140,0,.15);
+
+}
+
+
+
+h2{
+
+    color:#ff8c00;
+
+    margin-bottom:20px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+/* PROFILE */
+
+
+.profile{
+
+    display:flex;
+
+    gap:30px;
+
+    align-items:center;
+
+}
+
+
+
+.profile img{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:10px;
+
+    object-fit:cover;
+
+    border:3px solid #ff8c00;
+
+}
+
+
+
+
+/* SKILL */
+
+
+.skills{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+
+.card{
+
+    background:#0d0d0d;
+
+    padding:20px;
+
+    border:1px solid #333;
+
+    transition:.3s;
+
+}
+
+
+.card:hover{
+
+    border-color:#ff8c00;
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.card h3{
+
+    color:#ff8c00;
+
+}
+
+
+
+/* FOOTER */
+
+
+footer{
+
+    background:#050505;
+
+    text-align:center;
+
+    padding:25px;
+
+    color:#777;
+
+}
+
+
+
+
+@media(max-width:700px){
+
+header h1{
+
+font-size:35px;
+
+}
+
+
+.profile{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+nav a{
+
+display:block;
+
+margin:10px;
+
+}
+
+}
+
 
 </style>
 
@@ -177,15 +273,20 @@
 <body>
 
 
+
 <header>
 
 <div>
-    <h1>[ชื่อของคุณ]</h1>
-    <p>นักพัฒนา | นักออกแบบ | ผู้สร้างสรรค์ผลงาน</p>
 
-    <a href="#about" class="btn">
-        ดูโปรไฟล์
-    </a>
+<h1>[YOUR NAME]</h1>
+
+<div class="line"></div>
+
+<p>
+Engineering Student | Future Engineer
+</p>
+
+
 </div>
 
 </header>
@@ -194,82 +295,138 @@
 
 <nav>
 
-<a href="#about">เกี่ยวกับฉัน</a>
-<a href="#skill">ทักษะ</a>
-<a href="#work">ผลงาน</a>
-<a href="#contact">ติดต่อ</a>
+<a href="#about">Profile</a>
+
+<a href="#education">Education</a>
+
+<a href="#skill">Skills</a>
+
+<a href="#project">Projects</a>
+
+<a href="#contact">Contact</a>
 
 </nav>
-
 
 
 
 <div class="container">
 
 
+
 <section id="about">
 
-<h2>เกี่ยวกับฉัน</h2>
+<h2>Engineer Profile</h2>
+
 
 <div class="profile">
 
+
 <img src="profile.jpg">
 
+
 <p>
-สวัสดีครับ/ค่ะ ผมชื่อ <b>[ชื่อ-นามสกุล]</b><br>
 
-เป็นผู้ที่สนใจด้าน
-<b>[สาขาที่สนใจ]</b>
+ผมชื่อ <b>[ชื่อ-นามสกุล]</b><br><br>
 
-มีความมุ่งมั่นในการเรียนรู้
-พัฒนาทักษะ และสร้างผลงาน
-ที่มีคุณภาพอย่างต่อเนื่อง
+นักศึกษาวิศวกรรมศาสตร์
+ผู้สนใจด้าน <b>[Mechanical / Electrical / Computer / Civil]</b>
+
+มีความสนใจในการออกแบบ วิเคราะห์
+และพัฒนาเทคโนโลยีเพื่อแก้ไขปัญหา
+ในโลกจริง
 
 </p>
 
+
 </div>
+
 
 </section>
 
 
 
 
-<section>
 
-<h2>ประวัติการศึกษา</h2>
+<section id="education">
+
+<h2>Education</h2>
+
 
 <div class="card">
 
-<b>สถานศึกษา:</b> [ชื่อสถาบัน]
+<h3>Bachelor Degree</h3>
 
-<br>
+<p>
 
-<b>สาขาวิชา:</b> [สาขาวิชา]
+คณะวิศวกรรมศาสตร์<br>
 
-<br>
+สาขา : [สาขาวิชา]<br>
 
-<b>ปีการศึกษา:</b> [ปี]
+มหาวิทยาลัย : [ชื่อมหาวิทยาลัย]
+
+</p>
+
 
 </div>
 
+
 </section>
+
+
 
 
 
 
 <section id="skill">
 
-<h2>ทักษะ</h2>
+<h2>Engineering Skills</h2>
 
-<ul>
 
-<li>Web Development</li>
-<li>Graphic Design</li>
-<li>Problem Solving</li>
-<li>Communication Skill</li>
-<li>Team Work</li>
+<div class="skills">
 
-</ul>
+
+<div class="card">
+
+<h3>Design</h3>
+
+<p>
+CAD, 3D Modeling,
+Engineering Drawing
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Programming</h3>
+
+<p>
+Python, C++, MATLAB,
+Embedded System
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>Analysis</h3>
+
+<p>
+Problem Solving,
+Data Analysis,
+Simulation
+</p>
+
+</div>
+
+
+</div>
+
 
 </section>
 
@@ -277,9 +434,12 @@
 
 
 
-<section id="work">
 
-<h2>ผลงาน</h2>
+
+<section id="project">
+
+
+<h2>Engineering Projects</h2>
 
 
 <div class="card">
@@ -287,11 +447,24 @@
 <h3>Project 01</h3>
 
 <p>
-รายละเอียดผลงาน ตัวอย่างโครงการ
-หรือสิ่งที่เคยสร้างขึ้น
+
+ชื่อโครงการ :
+[ชื่อโปรเจกต์]
+
+<br>
+
+รายละเอียด :
+ออกแบบและพัฒนาระบบ
+เพื่อแก้ปัญหา...
+
 </p>
 
+
 </div>
+
+
+
+<br>
 
 
 <div class="card">
@@ -299,9 +472,18 @@
 <h3>Project 02</h3>
 
 <p>
-รายละเอียดเพิ่มเติมเกี่ยวกับผลงาน
-และประสบการณ์
+
+ชื่อโครงการ :
+[ชื่อโปรเจกต์]
+
+<br>
+
+รายละเอียด :
+การประยุกต์ใช้เทคโนโลยี
+ทางวิศวกรรม
+
 </p>
+
 
 </div>
 
@@ -312,17 +494,29 @@
 
 
 
+
+
 <section id="contact">
 
-<h2>ติดต่อ</h2>
+
+<h2>Contact</h2>
+
 
 <p>
+
 Email : your@email.com
+
 <br>
+
 Phone : 08x-xxx-xxxx
+
 <br>
-Social : @username
+
+Location : Thailand
+
+
 </p>
+
 
 </section>
 
@@ -334,10 +528,9 @@ Social : @username
 
 <footer>
 
-© 2026 [ชื่อของคุณ] | Portfolio Website
+ENGINEERING PORTFOLIO © 2026
 
 </footer>
-
 
 
 </body>
