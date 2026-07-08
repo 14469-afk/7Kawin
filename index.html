@@ -3,115 +3,285 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
+
+<title>Portfolio | Your Name</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
+
+<div class="background"></div>
 
 <header>
 
+<div class="logo">
+
+Portfolio
+
+</div>
+
 <nav>
-<a href="index.html">หน้าแรก</a>
-<a href="about.html">ประวัติส่วนตัว</a>
-<a href="education.html">การศึกษา</a>
-<a href="projects.html">ผลงาน</a>
-<a href="contact.html">ติดต่อ</a>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#education">Education</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#contact">Contact</a>
+
+<button id="darkMode">
+
+🌙
+
+</button>
+
 </nav>
 
 </header>
 
-<div class="container">
+<section id="home" class="hero">
 
-<div class="hero">
+<div class="left">
 
-<div class="hero-text">
+<h3>Hello 👋</h3>
 
-<h1>สวัสดีครับ 👋</h1>
+<h1>I'm YOUR NAME</h1>
 
-<h2>ผมชื่อ นายกวิน สมร</h2>
+<h2>Student Grade 12</h2>
 
 <p>
-ยินดีต้อนรับสู่ Portfolio ของผม
-เว็บไซต์นี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว ผลงาน และข้อมูลสำหรับการศึกษาต่อ
+
+เว็บไซต์นี้จัดทำขึ้นเพื่อรวบรวมผลงาน ประวัติ และกิจกรรม
+สำหรับการศึกษาต่อระดับมหาวิทยาลัย
+
 </p>
 
-<br>
+<div class="button">
 
-<button onclick="hello()">
-ยินดีต้อนรับ
-</button>
+<a href="#projects">
+
+ดูผลงาน
+
+</a>
+
+<a href="portfolio.pdf">
+
+ดาวน์โหลด Portfolio
+
+</a>
 
 </div>
 
-<img src="images/profile.jpg">
+</div>
+
+<div class="right">
+
+<img src="images/profile.png">
+
+</div>
+
+</section>
+
+<section id="about">
+
+<div class="glass">
+
+<h2>About Me</h2>
+
+<p>
+
+ชื่อ :
+
+</p>
+
+<p>
+
+ชื่อเล่น :
+
+</p>
+
+<p>
+
+อายุ :
+
+</p>
+
+<p>
+
+โรงเรียน :
+
+</p>
+
+<p>
+
+ความสามารถ :
+
+</p>
+
+</div>
+
+</section>
+
+<section id="education">
+
+<h2>Education</h2>
+
+<div class="timeline">
+
+<div class="card">
+
+<h3>Primary School</h3>
+
+<p>2013 - 2018</p>
+
+</div>
+
+<div class="card">
+
+<h3>Junior High School</h3>
+
+<p>2019 - 2021</p>
+
+</div>
+
+<div class="card">
+
+<h3>Senior High School</h3>
+
+<p>2022 - Present</p>
 
 </div>
 
 </div>
+
+</section>
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+
+<img src="images/project1.jpg">
+
+<h3>Website Portfolio</h3>
+
+<p>
+
+HTML CSS JavaScript
+
+</p>
+
+<a href="#">
+
+View More</a>
+
+</div>
+
+<div class="project">
+
+<img src="images/project2.jpg">
+
+<h3>Python Project</h3>
+
+<p>
+
+Python
+
+</p>
+
+<a href="#">
+
+View More
+
+</a>
+
+</div>
+
+<div class="project">
+
+<img src="images/project3.jpg">
+
+<h3>Canva Design</h3>
+
+<p>
+
+Graphic Design
+
+</p>
+
+<a href="#">
+
+View More
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="glass">
+
+<h2>Contact</h2>
+
+<p>
+
+📧 Email :
+your@email.com
+
+</p>
+
+<p>
+
+📱 Facebook :
+Your Name
+
+</p>
+
+<p>
+
+📸 Instagram :
+@yourname
+
+</p>
+
+<p>
+
+💻 Github :
+github.com/yourname
+
+</p>
+
+</div>
+
+</section>
 
 <footer>
 
-© 2026 My Portfolio
+<p>
+
+©2026 Your Name
+
+</p>
 
 </footer>
 
 <script src="js/script.js"></script>
 
 </body>
-</html>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<title>ประวัติส่วนตัว</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
 
-<body>
-
-<div class="container">
-
-<div class="card">
-
-<h2>ประวัติส่วนตัว</h2>
-
-<p>ชื่อ :นายกวิน สมร</p>
-
-<p>ชื่อเล่น :วิน</p>
-
-<p>วันเกิด :13 สิงหาคม 2551</p>
-
-<p>อายุ :17</p>
-
-<p>งานอดิเรกา :เล่นกีฬา</p>
-
-<p>ทักษะ :</p>
-
-</div>
-
-</div>
-
-</body>
-</html>
-<div class="card">
-
-<h2>ประวัติการศึกษา</h2>
-
-<ul>
-
-<li>ประถมศึกษา : โรงเรียน...</li>
-
-<li>มัธยมศึกษาตอนต้น : โรงเรียนพานทอง</li>
-
-<li>มัธยมศึกษาตอนปลาย : โรงเรียนพานทอง</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</body>
 </html>
