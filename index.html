@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Engineering Portfolio</title>
+<title>Portfolio | ม.6</title>
 
 <style>
 
@@ -12,145 +12,177 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Segoe UI",Tahoma,sans-serif;
+    font-family:"Prompt","Segoe UI",sans-serif;
 }
 
 body{
-    background:#0a0a0a;
-    color:#e5e5e5;
-    line-height:1.8;
+    background:#080b12;
+    color:#e5e7eb;
 }
 
 
-/* HEADER */
+/* HERO */
 
 header{
-    height:100vh;
+
+    min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
 
     background:
     linear-gradient(
-        rgba(0,0,0,.75),
-        rgba(0,0,0,.95)
+    rgba(0,0,0,.7),
+    rgba(8,11,18,1)
     ),
-    url("engineering-bg.jpg");
+    url("bg.jpg");
 
     background-size:cover;
+
 }
 
 
 header h1{
-    font-size:60px;
-    color:#ff8c00;
-    letter-spacing:3px;
+
+    font-size:55px;
+
+    color:#60a5fa;
+
 }
 
 
 header p{
-    margin-top:15px;
+
     font-size:22px;
-    color:#ccc;
+
+    color:#cbd5e1;
+
+    margin-top:15px;
+
 }
 
 
-.line{
-    width:120px;
-    height:4px;
-    background:#ff8c00;
-    margin:25px auto;
+.btn{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:12px 30px;
+
+    background:#60a5fa;
+
+    color:#07111f;
+
+    text-decoration:none;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
 }
 
 
 
-/* NAV */
+
+
+/* MENU */
+
 
 nav{
 
     position:sticky;
+
     top:0;
 
-    background:#111;
+    background:#0f172a;
+
     padding:15px;
 
     text-align:center;
 
-    border-bottom:1px solid #333;
+    z-index:5;
 
 }
 
 
 nav a{
 
-    color:#aaa;
+    color:#94a3b8;
+
     text-decoration:none;
-    margin:0 20px;
+
+    margin:0 15px;
 
 }
 
 
 nav a:hover{
 
-    color:#ff8c00;
+    color:#60a5fa;
 
 }
 
 
 
-/* CONTENT */
+
 
 .container{
 
     width:85%;
+
     max-width:1100px;
+
     margin:auto;
-    padding:50px 0;
+
+    padding:40px 0;
 
 }
+
+
 
 
 
 section{
 
-    background:#141414;
+    background:#111827;
 
-    padding:35px;
+    padding:30px;
 
-    margin-bottom:35px;
+    margin-bottom:30px;
 
-    border-left:5px solid #ff8c00;
+    border-radius:15px;
 
-    box-shadow:
-    0 0 20px rgba(255,140,0,.15);
+    border:1px solid #1e293b;
 
 }
+
+
 
 
 
 h2{
 
-    color:#ff8c00;
+    color:#60a5fa;
 
     margin-bottom:20px;
-
-    text-transform:uppercase;
 
 }
 
 
 
-/* PROFILE */
 
 
 .profile{
 
     display:flex;
 
-    gap:30px;
-
     align-items:center;
+
+    gap:30px;
 
 }
 
@@ -158,54 +190,45 @@ h2{
 
 .profile img{
 
-    width:170px;
+    width:160px;
 
-    height:170px;
+    height:160px;
 
-    border-radius:10px;
+    border-radius:50%;
 
     object-fit:cover;
 
-    border:3px solid #ff8c00;
+    border:4px solid #60a5fa;
 
 }
 
 
 
 
-/* SKILL */
 
-
-.skills{
+.grid{
 
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
+
+    repeat(auto-fit,minmax(230px,1fr));
 
     gap:20px;
 
 }
 
 
+
 .card{
 
-    background:#0d0d0d;
+    background:#0f172a;
 
     padding:20px;
 
-    border:1px solid #333;
+    border-radius:12px;
 
-    transition:.3s;
-
-}
-
-
-.card:hover{
-
-    border-color:#ff8c00;
-
-    transform:translateY(-5px);
+    border:1px solid #334155;
 
 }
 
@@ -213,38 +236,42 @@ h2{
 
 .card h3{
 
-    color:#ff8c00;
+    color:#38bdf8;
+
+    margin-bottom:10px;
 
 }
 
 
 
-/* FOOTER */
+
+
+ul{
+
+    margin-left:20px;
+
+}
+
+
 
 
 footer{
 
-    background:#050505;
+    background:#020617;
+
+    padding:20px;
 
     text-align:center;
 
-    padding:25px;
-
-    color:#777;
+    color:#64748b;
 
 }
+
 
 
 
 
 @media(max-width:700px){
-
-header h1{
-
-font-size:35px;
-
-}
-
 
 .profile{
 
@@ -254,11 +281,10 @@ text-align:center;
 
 }
 
-nav a{
 
-display:block;
+header h1{
 
-margin:10px;
+font-size:35px;
 
 }
 
@@ -270,21 +296,28 @@ margin:10px;
 </head>
 
 
-<body>
 
+<body>
 
 
 <header>
 
 <div>
 
-<h1>[YOUR NAME]</h1>
-
-<div class="line"></div>
+<h1>[ชื่อ - นามสกุล]</h1>
 
 <p>
-Engineering Student | Future Engineer
+Portfolio | นักเรียนชั้นมัธยมศึกษาปีที่ 6
 </p>
+
+<p>
+เป้าหมาย : คณะวิศวกรรมศาสตร์
+</p>
+
+
+<a href="#about" class="btn">
+เข้าสู่ Portfolio
+</a>
 
 
 </div>
@@ -293,19 +326,22 @@ Engineering Student | Future Engineer
 
 
 
+
 <nav>
 
-<a href="#about">Profile</a>
+<a href="#about">เกี่ยวกับฉัน</a>
 
-<a href="#education">Education</a>
+<a href="#education">การศึกษา</a>
 
-<a href="#skill">Skills</a>
+<a href="#activity">กิจกรรม</a>
 
-<a href="#project">Projects</a>
+<a href="#project">ผลงาน</a>
 
-<a href="#contact">Contact</a>
+<a href="#certificate">เกียรติบัตร</a>
 
 </nav>
+
+
 
 
 
@@ -315,7 +351,8 @@ Engineering Student | Future Engineer
 
 <section id="about">
 
-<h2>Engineer Profile</h2>
+
+<h2>About Me</h2>
 
 
 <div class="profile">
@@ -326,14 +363,17 @@ Engineering Student | Future Engineer
 
 <p>
 
-ผมชื่อ <b>[ชื่อ-นามสกุล]</b><br><br>
+สวัสดีครับ/ค่ะ
 
-นักศึกษาวิศวกรรมศาสตร์
-ผู้สนใจด้าน <b>[Mechanical / Electrical / Computer / Civil]</b>
+ผมชื่อ <b>[ชื่อของคุณ]</b>
 
-มีความสนใจในการออกแบบ วิเคราะห์
-และพัฒนาเทคโนโลยีเพื่อแก้ไขปัญหา
-ในโลกจริง
+กำลังศึกษาอยู่ระดับชั้นมัธยมศึกษาปีที่ 6
+
+มีความสนใจด้านวิศวกรรม เทคโนโลยี
+และการสร้างสรรค์นวัตกรรม
+
+มีความตั้งใจศึกษาต่อในระดับมหาวิทยาลัย
+และพัฒนาตนเองอย่างต่อเนื่อง
 
 </p>
 
@@ -349,20 +389,26 @@ Engineering Student | Future Engineer
 
 <section id="education">
 
+
 <h2>Education</h2>
 
 
 <div class="card">
 
-<h3>Bachelor Degree</h3>
+
+<h3>โรงเรียน</h3>
 
 <p>
 
-คณะวิศวกรรมศาสตร์<br>
+[ชื่อโรงเรียน]
 
-สาขา : [สาขาวิชา]<br>
+<br>
 
-มหาวิทยาลัย : [ชื่อมหาวิทยาลัย]
+แผนการเรียน : [วิทย์-คณิต / อื่น ๆ]
+
+<br>
+
+GPAX : [เกรดเฉลี่ย]
 
 </p>
 
@@ -377,49 +423,38 @@ Engineering Student | Future Engineer
 
 
 
-<section id="skill">
-
-<h2>Engineering Skills</h2>
+<section id="activity">
 
 
-<div class="skills">
+<h2>Activities</h2>
+
+
+<div class="grid">
 
 
 <div class="card">
 
-<h3>Design</h3>
+<h3>กิจกรรมที่ 1</h3>
 
 <p>
-CAD, 3D Modeling,
-Engineering Drawing
+
+รายละเอียดกิจกรรม
+
+หน้าที่และสิ่งที่ได้รับ
+
 </p>
 
 </div>
 
 
-
 <div class="card">
 
-<h3>Programming</h3>
+<h3>กิจกรรมที่ 2</h3>
 
 <p>
-Python, C++, MATLAB,
-Embedded System
-</p>
 
-</div>
+การแข่งขัน / ชมรม / จิตอาสา
 
-
-
-
-<div class="card">
-
-<h3>Analysis</h3>
-
-<p>
-Problem Solving,
-Data Analysis,
-Simulation
 </p>
 
 </div>
@@ -439,7 +474,11 @@ Simulation
 <section id="project">
 
 
-<h2>Engineering Projects</h2>
+<h2>Projects</h2>
+
+
+
+<div class="grid">
 
 
 <div class="card">
@@ -448,23 +487,21 @@ Simulation
 
 <p>
 
-ชื่อโครงการ :
-[ชื่อโปรเจกต์]
+ชื่อผลงาน
 
 <br>
 
-รายละเอียด :
-ออกแบบและพัฒนาระบบ
-เพื่อแก้ปัญหา...
+รายละเอียดโครงการ
+
+<br>
+
+เครื่องมือที่ใช้
 
 </p>
-
 
 </div>
 
 
-
-<br>
 
 
 <div class="card">
@@ -473,16 +510,16 @@ Simulation
 
 <p>
 
-ชื่อโครงการ :
-[ชื่อโปรเจกต์]
+ชื่อผลงาน
 
 <br>
 
-รายละเอียด :
-การประยุกต์ใช้เทคโนโลยี
-ทางวิศวกรรม
+แนวคิดและผลลัพธ์
 
 </p>
+
+</div>
+
 
 
 </div>
@@ -496,7 +533,53 @@ Simulation
 
 
 
-<section id="contact">
+<section id="certificate">
+
+
+<h2>Certificates</h2>
+
+
+<ul>
+
+<li>เกียรติบัตรการแข่งขัน [ชื่อรายการ]</li>
+
+<li>ผ่านการอบรม [ชื่อหลักสูตร]</li>
+
+<li>เข้าร่วมกิจกรรม [ชื่อกิจกรรม]</li>
+
+</ul>
+
+
+</section>
+
+
+
+
+
+
+<section>
+
+
+<h2>My Goal</h2>
+
+
+<p>
+
+เป้าหมายของผมคือการเข้าศึกษาต่อในคณะวิศวกรรมศาสตร์
+และนำความรู้ด้านวิทยาศาสตร์ เทคโนโลยี
+และการคิดวิเคราะห์ไปสร้างประโยชน์ในอนาคต
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+<section>
 
 
 <h2>Contact</h2>
@@ -510,11 +593,6 @@ Email : your@email.com
 
 Phone : 08x-xxx-xxxx
 
-<br>
-
-Location : Thailand
-
-
 </p>
 
 
@@ -526,11 +604,16 @@ Location : Thailand
 
 
 
+
 <footer>
 
-ENGINEERING PORTFOLIO © 2026
+Portfolio M.6 © 2026
 
 </footer>
+
+
+</body>
+</html>
 
 
 </body>
