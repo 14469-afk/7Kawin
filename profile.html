@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIVIL PORTFOLIO - ประวัติส่วนตัว</title>
+    <title>Civil Engineering Portfolio | Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
+        :root {
+            --primary: #1e293b;
+            --secondary: #0f172a;
+            --accent: #f97316;
+            --accent-soft: rgba(249, 115, 22, 0.15);
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --grid-color: rgba(249, 115, 22, 0.05);
+        }
 
         * {
             box-sizing: border-box;
@@ -15,351 +24,637 @@
         }
 
         body {
-            background-color: #0d1527; /* พื้นหลังน้ำเงินเข้มเดิม */
-            color: #ffffff;
+            background-color: var(--secondary);
+            color: var(--text-light);
+            overflow-x: hidden;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
-        /* --- แถบเมนูด้านบน (Navigation Bar เดิม) --- */
-        header {
-            background-color: #0b1120;
-            padding: 15px 40px;
+        /* Animated Engineering Background */
+        .bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(249, 115, 22, 0.2);
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
             font-weight: 700;
-            font-size: 1.2rem;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo span {
-            color: #f97316; /* สีส้มธีมหลัก */
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 24px;
-        }
-
-        nav a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        nav a:hover, nav a.active {
-            color: #f97316;
-        }
-
-        /* --- โครงสร้างเลย์เอาต์หลัก --- */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            flex-grow: 1;
-        }
-
-        /* --- กล่องโปรไฟล์ฝั่งซ้าย (คงเดิม) --- */
-        .profile-card {
-            background-color: #111a2e;
-            border: 2px solid #1e2d4a;
-            border-radius: 12px;
-            padding: 40px 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: fit-content;
-        }
-
-        .photo-placeholder {
-            width: 200px;
-            height: 250px;
-            border: 2px dashed #334155;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #64748b;
-            font-size: 0.85rem;
-            background-color: #0d1527;
-            margin-bottom: 24px;
-        }
-
-        .photo-placeholder svg {
-            width: 48px;
-            height: 48px;
-            fill: #475569;
-            margin-bottom: 10px;
-        }
-
-        .profile-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .profile-tag {
-            color: #f97316;
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        /* --- ข้อมูลรายละเอียดฝั่งขวา --- */
-        .content-right {
-            display: flex;
-            flex-direction: column;
-            gap: 30px; /* ระยะห่างระหว่างกล่องประวัติส่วนตัวและกล่องทักษะ */
-        }
-
-        /* สไตล์กล่องหลัก (ใช้ร่วมกันทั้งประวัติและทักษะ) */
-        .details-section {
-            background-color: #111a2e;
-            border: 1px solid #1e2d4a;
-            border-radius: 12px;
-            padding: 40px;
-        }
-
-        .section-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 25px;
+            color: var(--text-light);
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 2px solid #1e2d4a;
-            padding-bottom: 10px;
         }
 
-        .section-title span {
-            color: #f97316;
+        .logo span {
+            color: var(--accent);
         }
 
-        /* จัดข้อมูลประวัติส่วนตัวในกล่องเดียวเป็น 2 คอลัมน์ */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px 40px;
-        }
-
-        .info-group h3 {
-            color: #f97316;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 6px;
-        }
-
-        .info-group p {
-            font-size: 1.05rem;
-            color: #e2e8f0;
-            line-height: 1.5;
-        }
-
-        /* เน้นย้ำส่วนความใฝ่ฝันเป็นพิเศษ */
-        .info-group.full-width {
-            grid-column: span 2;
-            background-color: rgba(249, 115, 22, 0.05);
-            padding: 15px;
-            border-left: 3px solid #f97316;
-            border-radius: 4px;
-        }
-
-        /* --- ส่วนทักษะความสามารถพิเศษ (Skills) --- */
-        .skills-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
             list-style: none;
         }
 
-        .skill-item {
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        /* Main Content Container (โครงสร้างเดียวกับหน้า Education) */
+        .content-container {
+            flex: 1;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            z-index: 10;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-tag {
+            background: var(--accent-soft);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .page-header h1 span {
+            color: var(--accent);
+        }
+
+        /* Layout Grid สำหรับแยกส่วนรูปภาพกับข้อมูลประวัติ */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: start;
+        }
+
+        /* Blueprint Frame Image Area */
+        .blueprint-frame {
+            width: 320px;
+            height: 420px;
+            border: 2px dashed rgba(249, 115, 22, 0.4);
+            position: relative;
+            background: rgba(30, 41, 59, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .blueprint-frame::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+        }
+
+        .blueprint-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: 20px 20px;
+            background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                              linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+        }
+
+        .profile-img-holder {
+            width: 90%;
+            height: 92%;
+            background: #1e293b;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .profile-img-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Info Blocks / Cards Style (ถอดดีไซน์สไตล์เดียวกับ Education) */
+        .info-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--accent);
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.15);
+        }
+
+        .info-card:hover::before {
+            opacity: 1;
+            height: 100%;
+        }
+
+        .info-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 12px;
-            background-color: #16223f;
-            padding: 14px 20px;
-            border-radius: 8px;
+            gap: 10px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-title svg {
+            fill: var(--accent);
+        }
+
+        .info-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .info-value {
             font-size: 1rem;
-            color: #e2e8f0;
-            border: 1px solid rgba(249, 115, 22, 0.1);
-            transition: all 0.2s ease;
+            color: var(--text-light);
         }
 
-        .skill-item:hover {
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* Skill Badges */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        .skill-badge {
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.25);
+            color: var(--text-light);
+            padding: 0.4rem 0.9rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .skill-badge:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Navigation Buttons Bottom (ระบบโครงสร้าง Flex เดียวกับ Education) */
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.15);
+            padding-top: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-secondary {
+            color: var(--text-light);
+            border: 1px solid #334155;
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
             transform: translateY(-2px);
-            border-color: #f97316;
-            background-color: #1c2b4e;
         }
 
-        .skill-bullet {
-            width: 6px;
-            height: 6px;
-            background-color: #f97316; /* จุด Bullet สีส้มวิศวะ */
-            border-radius: 50%;
-            flex-shrink: 0;
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
         }
 
-        /* Responsive สำหรับจอมือถือและแท็บเล็ต */
-        @media (max-width: 992px) {
-            .container {
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                gap: 2.5rem;
+            }
+            .content-container {
+                padding: 2rem 1rem;
+            }
+            .info-details {
                 grid-template-columns: 1fr;
             }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            .info-group.full-width {
+            .full-width {
                 grid-column: span 1;
             }
-            .skills-list {
-                grid-template-columns: 1fr;
+            .nav-links {
+                display: none;
             }
-            .details-section {
-                padding: 25px;
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .btn-group {
+                gap: 0.75rem;
+            }
+            .btn {
+                flex: 1;
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- เมนูด้านบนคงเดิม -->
-    <header>
+    <canvas class="bg-canvas" id="canvas"></canvas>
+
+    <!-- Header Navigation Bar คงเดิม -->
+    <nav>
         <div class="logo">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/></svg>
-            CIVIL <span>PORTFOLIO</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#f97316" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 22h20L12 2zm0 3.99L18.53 18H5.47L12 5.99zM11 10h2v4h-2v-4zm0 6h2v2h-2v-2z"/>
+            </svg>
+            CIVIL<span>PORTFOLIO</span>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="profile.html" class="active">ประวัติส่วนตัว</a></li>
-                <li><a href="education.html">การศึกษา</a></li>
-                <li><a href="award.html">ผลงาน/เกียรติบัตร</a></li>
-                <li><a href="contact.html">ติดต่อ</a></li>
-            </ul>
-        </nav>
-    </header>
+        <ul class="nav-links">
+            <li><a href="index.html">หน้าแรก</a></li>
+            <li><a href="profile.html" class="active">ประวัติส่วนตัว</a></li>
+            <li><a href="education.html">การศึกษา</a></li>
+            <li><a href="award.html">ผลงาน/เกียรติบัตร</a></li>
+            <li><a href="contact.html">ติดต่อ</a></li>
+        </ul>
+    </nav>
 
-    <main class="container">
+    <!-- Main Content Layout สไตล์เดียวกับหน้า Education -->
+    <main class="content-container">
         
-        <!-- ฝั่งซ้าย: รูปภาพและข้อมูลสรุปคงเดิม -->
-        <section class="profile-card">
-            <div class="photo-placeholder">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
-                <img src="images/IMG_0566.jpg" alt="รูปถ่ายนักเรียน" style="width: 100%; height: auto; border-radius: 8px;">
+        <div class="page-header">
+            <span class="page-tag">PERSONAL INFORMATION</span>
+            <h1>ประวัติ<span>ส่วนตัว</span></h1>
+        </div>
 
-            </div>
-            <h1 class="profile-name">นายกวิน สมร</h1> <!-- -->
-           
-        </section>
-
-        <!-- ฝั่งขวา: แบ่งกลุ่มข้อมูลออกจากกันเป็นคนละกล่องอย่างเป็นระเบียบ -->
-        <div class="content-right">
+        <div class="profile-grid">
             
-            <!-- กล่องที่ 1: ประวัติส่วนตัว (2 คอลัมน์) -->
-            <section class="details-section">
-                <h2 class="section-title"><span>PERSONAL</span> PROFILE - ประวัติส่วนตัว</h2>
+            <!-- Left Side: Blueprint Frame Photo -->
+            <div class="blueprint-frame">
+                <div class="blueprint-grid"></div>
+                <div class="profile-img-holder">
+                    <!-- ดึงข้อมูลภาพโครงสร้างเดิมของคุณแอนฟิลด์มาแสดงผล -->
+                    <img src="images/IMG_0566.jpg" alt="รูปภาพแอนฟิลด์">
+                </div>
+            </div>
+
+            <!-- Right Side: Info Cards Group -->
+            <div class="info-timeline">
                 
-                <div class="info-grid">
-                    <div class="info-group">
-                        <h3>ชื่อ-นามสกุล</h3>
-                        <p>นายกวิน สมร</p> <!-- -->
-                    </div>
-                    <div class="info-group">
-                        <h3>ชื่อเล่น</h3>
-                        <p>วิน</p> <!-- -->
-                    </div>
-                    <div class="info-group">
-                        <h3>วัน/เดือน/ปีเกิด</h3>
-                        <p>13 สิงหาคม พ.ศ. 2551</p> <!-- -->
-                    </div>
-                    <div class="info-group">
-                        <h3>อายุ</h3>
-                        <p>17 ปี</p>
-                    </div>
-                    <div class="info-group">
-                        <h3>สัญชาติ</h3>
-                        <p>ไทย</p>
-                    </div>
-                    <div class="info-group">
-                        <h3>ศาสนา</h3>
-                        <p>พุทธ</p>
-                    </div>
-                   
-                    <div class="info-group">
-                        <h3>งานอดิเรก</h3>
-                        <p>วาดภาพ,เล่นฟุตซอล</p> <!-- -->
-                    </div>
-                    <div class="info-group">
-                        <h3>คติประจำใจ</h3>
-                        <p>"สร้างด้วยความรู้ ค้ำจุนด้วยความปลอดภัยและมั่นคง"</p> <!-- -->
-                    </div>
-                
-                    <div class="info-group">
-                        <h3>ความสามารถพิเศษ</h3>
-                        <p>วาดภาพ</p>
-                    </div>
-                    
-                    <!-- ส่วนความใฝ่ฝันขยายเต็มความกว้างเพื่อเน้นจุดประสงค์หลัก -->
-                    <div class="info-group full-width">
-                        <h3>ความใฝ่ฝันในการศึกษาต่อ</h3>
-                        <p>มุ่งมั่นเข้าศึกษาต่อใน<strong>คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมโยธา</strong> เพื่อพัฒนาความรู้ไปสู่การเป็นวิศวกรโครงสร้างและนักวางแผนโครงสร้างพื้นฐานที่มีประสิทธิภาพในอนาคต</p> <!-- -->
+                <!-- Card 1: ข้อมูลทั่วไป -->
+                <div class="info-card">
+                    <h2 class="info-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        ข้อมูลทั่วไป
+                    </h2>
+                    <div class="info-details">
+                        <div class="info-item">
+                            <span class="info-label">ชื่อ-นามสกุล</span>
+                            <span class="info-value">นายกวิน สมร</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">ชื่อเล่น</span>
+                            <span class="info-value">วิน</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">กำลังศึกษาระดับชั้น</span>
+                            <span class="info-value">มัธยมศึกษาปีที่ 6</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">แผนการเรียน</span>
+                            <span class="info-value">วิทยาศาสตร์ - คณิตศาสตร์</span>
+                        </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- กล่องที่ 2: ทักษะ/ความสามารถพิเศษ (Skills) แยกออกมาต่างหาก -->
-            <section class="details-section">
-                <h2 class="section-title"><span>ENGINEERING</span> SKILLS - ทักษะความสามารถ</h2>
-                
-                <ul class="skills-list">
-                    <li class="skill-item">
-                        <span class="skill-bullet"></span>
-                        3D SketchUp & Modeling <!-- -->
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-bullet"></span>
-                        AutoCAD (Basic 2D Drawing) <!-- -->
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-bullet"></span>
-                        ฟิสิกส์โครงสร้างและการวิเคราะห์ระบบ <!-- -->
-                    </li>
-                    <li class="skill-item">
-                        <span class="skill-bullet"></span>
-                        ภาษาอังกฤษเพื่อวิศวกรรม (English) <!-- -->
-                    </li>
-                </ul>
-            </section>
-            
+                <!-- Card 2: เป้าหมายและความสนใจ -->
+                <div class="info-card">
+                    <h2 class="info-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                        เป้าหมายและความมุ่งมั่น
+                    </h2>
+                    <div class="info-details">
+                        <div class="info-item full-width">
+                            <span class="info-label">เป้าหมายสูงสุดด้านการศึกษา</span>
+                            <span class="info-value">มุ่งสู่การศึกษาต่อและพัฒนาทักษะวิชาชีพในคณะวิศวกรรมศาสตร์ ภาควิชาวิศวกรรมโยธา</span>
+                        </div>
+                        <div class="info-item full-width">
+                            <span class="info-label">เป้าหมายส่วนบุคคล</span>
+                            <span class="info-value">ตั้งใจพัฒนาทักษะภาษาอังกฤษ (English Proficiency) และพัฒนาผลการเรียนในวิชาหลักอย่างสม่ำเสมอ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: ทักษะและความสามารถพิเศษ -->
+                <div class="info-card">
+                    <h2 class="info-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91v6.41h2V9L12 3z"/></svg>
+                        ทักษะและความสามารถพิเศษ
+                    </h2>
+                    <div class="info-details">
+                        <div class="info-item full-width">
+                            <span class="info-label">ทักษะด้านเทคนิคและการออกแบบ (Technical Skills)</span>
+                            <div class="skills-container">
+                                <span class="skill-badge">วาดภาพ</span>
+                                
+                                <span class="skill-badge">การคำนวณเบื้องต้น</span>
+                            </div>
+                        </div>
+                        <div class="info-item full-width">
+                            <span class="info-label">ทักษะด้านกิจกรรมและกีฬา (Activities)</span>
+                            <div class="skills-container">
+                                <span class="skill-badge">ฟุตซอล (Futsal)</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ปุ่มควบคุมนำทางด้านล่างสไตล์เดียวกับหน้า Education ประยุกต์ใช้ Flex ชิดซ้าย-ขวา -->
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                ย้อนกลับ
+            </a>
+            <a href="education.html" class="btn btn-primary">
+                ถัดไป
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
         </div>
 
     </main>
 
+    <!-- Script สำหรับวาดอนิเมชันโครงสร้างวิศวกรรมสไตล์เดียวกับหน้าอื่น ๆ -->
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const nodes = [];
+        const numNodes = 18;
+        for (let i = 0; i < numNodes; i++) {
+            nodes.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                radius: Math.random() * 2 + 2
+            });
+        }
+
+        const gears = [
+            { x: 100, y: 200, radius: 60, teeth: 12, speed: 0.005, color: 'rgba(249, 115, 22, 0.08)' },
+            { x: 196, y: 200, radius: 40, teeth: 8, speed: -0.0075, color: 'rgba(30, 41, 59, 0.25)', strokeColor: 'rgba(249, 115, 22, 0.1)' },
+            { x: width - 150, y: height - 150, radius: 90, teeth: 18, speed: 0.003, color: 'rgba(249, 115, 22, 0.05)' }
+        ];
+
+        let angleOffset = 0;
+
+        function drawGear(gear) {
+            ctx.save();
+            ctx.translate(gear.x, gear.y);
+            ctx.rotate(angleOffset * (gear.speed / 0.005));
+            ctx.fillStyle = gear.color;
+            ctx.strokeStyle = gear.strokeColor || 'rgba(249, 115, 22, 0.05)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(0, 0, gear.radius - 12, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            for (let i = 0; i < gear.teeth; i++) {
+                ctx.rotate((Math.PI * 2) / gear.teeth);
+                ctx.beginPath();
+                ctx.rect(-8, -gear.radius, 16, 20);
+                ctx.fill();
+                ctx.stroke();
+            }
+
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.beginPath();
+            ctx.arc(0, 0, gear.radius * 0.35, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.beginPath();
+            ctx.arc(0, 0, gear.radius * 0.35, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function drawTrussBeam(p1, p2) {
+            const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
+            if (dist < 250) {
+                ctx.strokeStyle = `rgba(249, 115, 22, ${0.15 * (1 - dist / 250)})`;
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
+
+                ctx.strokeStyle = `rgba(249, 115, 22, ${0.05 * (1 - dist / 250)})`;
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(p1.x + 4, p1.y + 4);
+                ctx.lineTo(p2.x + 4, p2.y + 4);
+                ctx.stroke();
+
+                if (dist > 120 && dist < 180) {
+                    ctx.fillStyle = `rgba(249, 115, 22, ${0.3 * (1 - dist / 180)})`;
+                    ctx.font = "10px 'Space Grotesk', sans-serif";
+                    const midX = (p1.x + p2.x) / 2;
+                    const midY = (p1.y + p2.y) / 2;
+                    ctx.fillText(`L = ${(dist * 0.05).toFixed(2)} m`, midX + 8, midY - 8);
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.strokeStyle = 'rgba(249, 115, 22, 0.035)';
+            ctx.lineWidth = 1;
+            const gridSize = 45;
+            for(let x = 0; x < width; x += gridSize) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
+            }
+            for(let y = 0; y < height; y += gridSize) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
+            }
+
+            gears.forEach(drawGear);
+            angleOffset += 0.01;
+
+            for (let i = 0; i < nodes.length; i++) {
+                const p1 = nodes[i];
+                p1.x += p1.vx;
+                p1.y += p1.vy;
+
+                if (p1.x < 0 || p1.x > width) p1.vx *= -1;
+                if (p1.y < 0 || p1.y > height) p1.vy *= -1;
+
+                ctx.fillStyle = 'rgba(249, 115, 22, 0.4)';
+                ctx.beginPath();
+                ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                if (i % 5 === 0) {
+                    ctx.strokeStyle = 'rgba(249, 115, 22, 0.15)';
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y + p1.radius);
+                    ctx.lineTo(p1.x - 10, p1.y + 15);
+                    ctx.lineTo(p1.x + 10, p1.y + 15);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+
+                for (let j = i + 1; j < nodes.length; j++) {
+                    drawTrussBeam(p1, nodes[j]);
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
 </html>
