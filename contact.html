@@ -138,26 +138,24 @@
             align-items: center;
             width: 100%;
             padding: 16px 24px;
-            background: rgba(17, 26, 46, 0.6); /* น้ำเงินเข้มโปร่งแสง */
+            background: rgba(17, 26, 46, 0.6);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(249, 115, 22, 0.25); /* เส้นขอบสีส้มอ่อนโปร่งแสง */
-            border-radius: 12px; /* ขอบโค้งมน */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.05); /* เงานุ่มนวล */
+            border: 1px solid rgba(249, 115, 22, 0.25);
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.05);
             text-decoration: none;
             color: #e2e8f0;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* เมื่อเป็นลิงก์ที่คลิกได้ ให้แสดง Cursor เป็นรูปมือ */
         a.contact-card {
             cursor: pointer;
         }
 
-        /* เอฟเฟกต์ Hover เมื่อเลื่อนเมาส์ผ่าน */
         .contact-card:hover {
-            transform: translateY(-4px); /* ยกตัวขึ้นเล็กน้อย */
-            border-color: rgba(249, 115, 22, 1); /* เปลี่ยนเส้นขอบเป็นสีส้มชัดเจน */
+            transform: translateY(-4px);
+            border-color: rgba(249, 115, 22, 1);
             box-shadow: 0 10px 20px rgba(249, 115, 22, 0.15), 0 4px 6px rgba(0, 0, 0, 0.2);
             background: rgba(22, 34, 63, 0.7);
         }
@@ -171,7 +169,7 @@
             height: 44px;
             background-color: rgba(30, 41, 59, 0.7);
             border-radius: 50%;
-            fill: #f97316; /* ไอคอนสีส้ม */
+            fill: #f97316;
             margin-right: 20px;
             flex-shrink: 0;
             transition: all 0.3s;
@@ -179,7 +177,7 @@
 
         .contact-card:hover .card-icon-wrapper {
             background-color: #f97316;
-            fill: #0d1527; /* สลับสีไอคอนตอนชี้ */
+            fill: #0d1527;
         }
 
         .card-content {
@@ -204,44 +202,52 @@
         }
 
         .contact-card:hover .card-value {
-            color: #f97316; /* ข้อความสำคัญเปลี่ยนเป็นสีส้มตอนโฟกัส */
+            color: #f97316;
         }
 
-        /* --- ปุ่มควบคุมด้านล่าง --- */
+        /* --- ส่วนปรับปรุงใหม่: ปุ่มควบคุมนำทางด้านล่างสไตล์เดียวกับหน้า Awards --- */
         .btn-group {
             display: flex;
-            justify-content: center;
+            justify-content: space-between; /* จัดวางชิดซ้าย-ขวา */
+            align-items: center;
+            width: 100%;
             gap: 20px;
+            margin-top: 20px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 24px;
-            border-radius: 30px;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 8px; /* ปรับดีไซน์มุมโค้งตามรูปแบบ Awards */
             font-size: 0.95rem;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
+            min-width: 130px;
         }
 
+        /* ปุ่มย้อนกลับ (ซ้าย - โปร่งแสง ขอบเทาเข้ม ตัวหนังสือขาว) */
         .btn-secondary {
-            color: #e2e8f0;
+            color: #ffffff;
             border: 1px solid #334155;
-            background-color: rgba(15, 23, 42, 0.6);
+            background-color: transparent;
         }
 
         .btn-secondary:hover {
-            border-color: #f97316;
-            color: #f97316;
+            border-color: #94a3b8;
+            background-color: rgba(255, 255, 255, 0.05);
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
+        /* ปุ่มถัดไป (ขวา - สีส้มหลัก ตัวหนังสือขาว) */
         .btn-primary {
             background-color: #f97316;
-            color: #0d1527;
+            color: #ffffff;
             border: 1px solid #f97316;
             box-shadow: 0 4px 14px rgba(249, 115, 22, 0.2);
         }
@@ -253,7 +259,7 @@
             box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
         }
 
-        /* จอมือถือ */
+        /* จอมือถือและแท็บเล็ต */
         @media (max-width: 600px) {
             header {
                 flex-direction: column;
@@ -266,13 +272,15 @@
             .contact-header h1 {
                 font-size: 1.8rem;
             }
+            /* บนมือถือให้ยังคงอยู่แถวเดียวกันเพื่อความเป็นระเบียบนำทางง่าย */
             .btn-group {
-                flex-direction: column;
                 gap: 12px;
             }
             .btn {
-                width: 100%;
-                justify-content: center;
+                flex: 1;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                min-width: auto;
             }
         }
     </style>
@@ -303,79 +311,68 @@
     <main class="contact-container">
         
         <div class="contact-header">
-            <h1>CONTACT ME</h1>
+            
             <p>ช่องทางการติดต่อและข้อมูลการสื่อสาร</p>
         </div>
 
         <!-- กลุ่มของกรอบข้อมูลติดต่อแยกชิ้นขนาดเท่ากันหมด -->
         <div class="contact-cards-group">
             
-            <!-- เบอร์โทรศัพท์ (div ปกติ คลิกไม่ได้) -->
+            <!-- เบอร์โทรศัพท์ -->
             <div class="contact-card">
                 <div class="card-icon-wrapper">
                     <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                 </div>
                 <div class="card-content">
                     <span class="card-label">Telephone</span>
-                    <span class="card-value">0xx-xxx-xxxx</span>
+                    <span class="card-value">082-870-5203</span>
                 </div>
             </div>
 
-            <!-- ที่อยู่ (div ปกติ คลิกไม่ได้) -->
+            <!-- ที่อยู่ -->
             <div class="contact-card">
                 <div class="card-icon-wrapper">
                     <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                 </div>
                 <div class="card-content">
                     <span class="card-label">Address</span>
-                    <span class="card-value">กรุงเทพมหานคร, ประเทศไทย</span>
+                    <span class="card-value">51 ม.10 ต.มาปโป่ง อ.พานมอง จ.ชลบุรี
+โรงเรียนวัดเซิดสำราญ(บ้านเซิดวิทยาคาร)</span>
                 </div>
             </div>
-
-            <!-- Facebook (แท็ก a สำหรับคลิกลิงก์) -->
-            <a href="https://facebook.com/yourusername" target="_blank" class="contact-card">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/1a2N1Ro9FU/" target="_blank" class="contact-card">
                 <div class="card-icon-wrapper">
                     <svg width="18" height="18" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79z"/></svg>
                 </div>
                 <div class="card-content">
                     <span class="card-label">Facebook</span>
-                    <span class="card-value">นายแอนฟิลด์ รักดี</span>
+                    <span class="card-value">Kawin Samorn</span>
                 </div>
             </a>
 
-            <!-- Instagram (แท็ก a สำหรับคลิกลิงก์) -->
-            <a href="https://instagram.com/yourusername" target="_blank" class="contact-card">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/k.w_nn?igsh=Njg1aXo3Mnhhc2Fx" target="_blank" class="contact-card">
                 <div class="card-icon-wrapper">
                     <svg width="18" height="18" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m4.4 3a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m4.5-1.25a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/></svg>
                 </div>
                 <div class="card-content">
                     <span class="card-label">Instagram</span>
-                    <span class="card-value">@Anfield.rd</span>
+                    <span class="card-value">@k.w_nn</span>
                 </div>
             </a>
 
-            <!-- LINE (แท็ก a สำหรับคลิกลิงก์) -->
-            <a href="https://line.me/ti/p/~yourlineid" target="_blank" class="contact-card">
-                <div class="card-icon-wrapper">
-                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-                </div>
-                <div class="card-content">
-                    <span class="card-label">LINE</span>
-                    <span class="card-value">Connect via LINE</span>
-                </div>
-            </a>
-
-        </div>
-
-        <!-- ปุ่มควบคุมย้อนกลับและกลับหน้าหลักด้านล่างสุด -->
+        <!-- ส่วนปรับปรุงใหม่: แถบปุ่มควบคุมแบบเดียวกับหน้า Awards (ย้อนกลับ - ถัดไป) -->
         <div class="btn-group">
+            <!-- ปุ่มย้อนกลับ (ชิดซ้าย) -->
             <a onclick="window.history.back()" class="btn btn-secondary">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 ย้อนกลับ
             </a>
+            <!-- ปุ่มถัดไป (ชิดขวา สีส้มหลัก) -->
             <a href="index.html" class="btn btn-primary">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                กลับหน้าหลัก
+                ถัดไป
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
         </div>
 
