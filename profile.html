@@ -1,29 +1,374 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="th">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIVIL PORTFOLIO - ประวัติส่วนตัว</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
 
-    <title>Portfolio กวิน</title>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Sarabun', sans-serif;
+        }
 
+        body {
+            background-color: #0d1527; /* พื้นหลังน้ำเงินเข้มเดิม */
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- แถบเมนูด้านบน (Navigation Bar เดิม) --- */
+        header {
+            background-color: #0b1120;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: #f97316; /* สีส้มธีมหลัก */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #f97316;
+        }
+
+        /* --- โครงสร้างเลย์เอาต์หลัก --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            flex-grow: 1;
+        }
+
+        /* --- กล่องโปรไฟล์ฝั่งซ้าย (คงเดิม) --- */
+        .profile-card {
+            background-color: #111a2e;
+            border: 2px solid #1e2d4a;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: fit-content;
+        }
+
+        .photo-placeholder {
+            width: 200px;
+            height: 250px;
+            border: 2px dashed #334155;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            background-color: #0d1527;
+            margin-bottom: 24px;
+        }
+
+        .photo-placeholder svg {
+            width: 48px;
+            height: 48px;
+            fill: #475569;
+            margin-bottom: 10px;
+        }
+
+        .profile-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .profile-tag {
+            color: #f97316;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* --- ข้อมูลรายละเอียดฝั่งขวา --- */
+        .content-right {
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* ระยะห่างระหว่างกล่องประวัติส่วนตัวและกล่องทักษะ */
+        }
+
+        /* สไตล์กล่องหลัก (ใช้ร่วมกันทั้งประวัติและทักษะ) */
+        .details-section {
+            background-color: #111a2e;
+            border: 1px solid #1e2d4a;
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #1e2d4a;
+            padding-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #f97316;
+        }
+
+        /* จัดข้อมูลประวัติส่วนตัวในกล่องเดียวเป็น 2 คอลัมน์ */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 40px;
+        }
+
+        .info-group h3 {
+            color: #f97316;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .info-group p {
+            font-size: 1.05rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+
+        /* เน้นย้ำส่วนความใฝ่ฝันเป็นพิเศษ */
+        .info-group.full-width {
+            grid-column: span 2;
+            background-color: rgba(249, 115, 22, 0.05);
+            padding: 15px;
+            border-left: 3px solid #f97316;
+            border-radius: 4px;
+        }
+
+        /* --- ส่วนทักษะความสามารถพิเศษ (Skills) --- */
+        .skills-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            list-style: none;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #16223f;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #e2e8f0;
+            border: 1px solid rgba(249, 115, 22, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-2px);
+            border-color: #f97316;
+            background-color: #1c2b4e;
+        }
+
+        .skill-bullet {
+            width: 6px;
+            height: 6px;
+            background-color: #f97316; /* จุด Bullet สีส้มวิศวะ */
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Responsive สำหรับจอมือถือและแท็บเล็ต */
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .info-group.full-width {
+                grid-column: span 1;
+            }
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+            .details-section {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
+    <!-- เมนูด้านบนคงเดิม -->
+    <header>
+        <div class="logo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/></svg>
+            CIVIL <span>PORTFOLIO</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="profile.html" class="active">ประวัติส่วนตัว</a></li>
+                <li><a href="education.html">การศึกษา</a></li>
+                <li><a href="award.html">ผลงาน/เกียรติบัตร</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="container">
+        
+        <!-- ฝั่งซ้าย: รูปภาพและข้อมูลสรุปคงเดิม -->
+        <section class="profile-card">
+            <div class="photo-placeholder">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                [ ใส่ภาพถ่ายสวมชุดนักเรียนที่นี่ ]
+            </div>
+            <h1 class="profile-name">นายแอนฟิลด์ รักดี</h1> <!-- -->
+            <p class="profile-tag">ผู้สมัครสอบคัดเลือก TCAS ม.6 โยธา</p>
+        </section>
 
-<h1>นายกวิน สมร</h1>
+        <!-- ฝั่งขวา: แบ่งกลุ่มข้อมูลออกจากกันเป็นคนละกล่องอย่างเป็นระเบียบ -->
+        <div class="content-right">
+            
+            <!-- กล่องที่ 1: ประวัติส่วนตัว (2 คอลัมน์) -->
+            <section class="details-section">
+                <h2 class="section-title"><span>PERSONAL</span> PROFILE - ประวัติส่วนตัว</h2>
+                
+                <div class="info-grid">
+                    <div class="info-group">
+                        <h3>ชื่อ-นามสกุล</h3>
+                        <p>นายแอนฟิลด์ รักดี</p> <!-- -->
+                    </div>
+                    <div class="info-group">
+                        <h3>ชื่อเล่น</h3>
+                        <p>Anfield</p> <!-- -->
+                    </div>
+                    <div class="info-group">
+                        <h3>วัน/เดือน/ปีเกิด</h3>
+                        <p>12 มกราคม พ.ศ. 2551</p> <!-- -->
+                    </div>
+                    <div class="info-group">
+                        <h3>อายุ</h3>
+                        <p>18 ปี</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>สัญชาติ</h3>
+                        <p>ไทย</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>ศาสนา</h3>
+                        <p>พุทธ</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>เบอร์โทรศัพท์</h3>
+                        <p>0xx-xxx-xxxx</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>อีเมล</h3>
+                        <p>anfield.civil@example.com</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>งานอดิเรก</h3>
+                        <p>ออกแบบโมเดล 3D, เล่นฟุตซอล</p> <!-- -->
+                    </div>
+                    <div class="info-group">
+                        <h3>คติประจำใจ</h3>
+                        <p>"สร้างด้วยความรู้ ค้ำจุนด้วยความปลอดภัยและมั่นคง"</p> <!-- -->
+                    </div>
+                    <div class="info-group">
+                        <h3>ที่อยู่</h3>
+                        <p>กรุงเทพมหานคร, ประเทศไทย</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>ความสามารถพิเศษ</h3>
+                        <p>การวิเคราะห์โครงสร้างพื้นฐาน, ทักษะทางวิศวกรรม</p>
+                    </div>
+                    
+                    <!-- ส่วนความใฝ่ฝันขยายเต็มความกว้างเพื่อเน้นจุดประสงค์หลัก -->
+                    <div class="info-group full-width">
+                        <h3>ความใฝ่ฝันในการศึกษาต่อ</h3>
+                        <p>มุ่งมั่นเข้าศึกษาต่อใน<strong>คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมโยธา</strong> เพื่อพัฒนาความรู้ไปสู่การเป็นวิศวกรโครงสร้างและนักวางแผนโครงสร้างพื้นฐานที่มีประสิทธิภาพในอนาคต</p> <!-- -->
+                    </div>
+                </div>
+            </section>
 
+            <!-- กล่องที่ 2: ทักษะ/ความสามารถพิเศษ (Skills) แยกออกมาต่างหาก -->
+            <section class="details-section">
+                <h2 class="section-title"><span>ENGINEERING</span> SKILLS - ทักษะความสามารถ</h2>
+                
+                <ul class="skills-list">
+                    <li class="skill-item">
+                        <span class="skill-bullet"></span>
+                        3D SketchUp & Modeling <!-- -->
+                    </li>
+                    <li class="skill-item">
+                        <span class="skill-bullet"></span>
+                        AutoCAD (Basic 2D Drawing) <!-- -->
+                    </li>
+                    <li class="skill-item">
+                        <span class="skill-bullet"></span>
+                        ฟิสิกส์โครงสร้างและการวิเคราะห์ระบบ <!-- -->
+                    </li>
+                    <li class="skill-item">
+                        <span class="skill-bullet"></span>
+                        ภาษาอังกฤษเพื่อวิศวกรรม (English) <!-- -->
+                    </li>
+                </ul>
+            </section>
+            
+        </div>
 
-
-<p>นักเรียนชั้นมัธยมศึกษาปีที่6/1</p>
-
-
-
-<p>โรงเรียนพานทอง</p>
-
-
+    </main>
 
 </body>
-
 </html>
