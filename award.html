@@ -157,36 +157,27 @@
         </div>
 
 
-    </main>
+           <!-- ลบโค้ดปุ่มนำทางเก่าตรงจุดนี้ออกให้หมด แล้วแทนที่ด้วยชุดนี้ครับ -->
+        
+        <div class="nav-btn-container" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 40px 20px 20px 20px; box-sizing: border-box; grid-column: 1 / -1; clear: both; margin-top: 40px;">
+            <a href="education.html" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 8px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                ย้อนกลับ
+            </a>
+            
+            <a href="contact.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                ถัดไป
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
 
-<!-- โค้ดปุ่มนำทางแบบหน้าติดต่อที่ย้ายมาอยู่ด้านล่างสุด -->
-<div class="nav-btn-container" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; box-sizing: border-box; clear: both; margin-top: 40px;">
-    <a href="education.html" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 8px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        ย้อนกลับ
-    </a>
-    
-    <a href="contact.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
-        ถัดไป
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-    </a>
-</div>
-
-<script>
-
-    </a>
-</div>
-
-<script>
-
-    </main>
-
+    ⁠</main> <!-- แท็กปิด </main> ต้องอยู่ตรงนี้ ใต้ปุ่มนำทาง เพื่อดึงพื้นหลังกลับมา -->⁠
     <script>
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
