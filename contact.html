@@ -91,7 +91,7 @@
             z-index: 5;
             display: flex;
             flex-direction: column;
-            flex-grow: 1; /* ดันเนื้อหาและปุ่มนำทาง */
+            flex-grow: 1;
         }
 
         /* --- สไตล์หัวข้อ --- */
@@ -189,7 +189,7 @@
         .card-value {
             font-size: 1.05rem;
             font-weight: 600;
-            color: #ffffff;
+            color: #ffffff; /* แก้ไขตรงนี้เป็นสีขาวเพื่อให้อ่านง่าย */
             transition: color 0.3s;
         }
 
@@ -197,15 +197,15 @@
             color: var(--accent);
         }
 
-        /* --- ปรับปรุงใหม่: สไตล์แถบปุ่มควบคุมนำทางด้านล่าง (ตามรูปภาพ) --- */
+        /* --- สไตล์แถบปุ่มควบคุมนำทางด้านล่าง --- */
         .btn-group {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            margin-top: auto; /* ดันกลุ่มปุ่มลงด้านล่างสุด */
+            margin-top: auto;
             padding-top: 35px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08); /* เส้นกั้นบางๆ ด้านบนปุ่ม */
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .btn {
@@ -223,7 +223,6 @@
             min-width: 135px;
         }
 
-        /* ปุ่มย้อนกลับ: ขอบบางมนๆ พื้นหลังใส */
         .btn-secondary {
             color: #ffffff;
             border: 1px solid rgba(148, 163, 184, 0.2);
@@ -236,12 +235,11 @@
             transform: translateY(-2px);
         }
 
-        /* ปุ่มถัดไป: สีส้มสดเรืองแสงตามต้นแบบรูป */
         .btn-primary {
-            background-color: #ff6b15; /* สีส้มสด */
+            background-color: #ff6b15;
             color: #ffffff;
             border: 1px solid #ff6b15;
-            box-shadow: 0 4px 15px rgba(255, 107, 21, 0.35); /* เพิ่มเงาเรืองแสงสีส้ม */
+            box-shadow: 0 4px 15px rgba(255, 107, 21, 0.35);
         }
 
         .btn-primary:hover {
@@ -284,10 +282,10 @@
 </head>
 <body>
 
-    <!-- Canvas พื้นหลังเคลื่อนไหวแบบหน้า Profile/Education -->
+    <!-- Canvas พื้นหลังเคลื่อนไหว -->
     <canvas class="bg-canvas" id="canvas"></canvas>
 
-    <!-- แถบเมนูนำทาง (Navigation Bar) สำหรับหน้า contact.html -->
+    <!-- แถบเมนูนำทาง -->
     <header>
         <div class="logo">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/></svg>
@@ -304,22 +302,9 @@
         </nav>
     </header>
 
-    <!-- พื้นที่เนื้อหาหลัก <main class="contact-container"> จะอยู่ตรงนี้ต่อเลย... -->
-
-
-    <!-- แถบเมนูด้านบน -->
-    <header>
-        <div class="logo">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/></svg>
-            CIVIL <span>PORTFOLIO</span>
-        </div>
-
-    </header>
-
     <!-- พื้นที่เนื้อหาหลัก -->
     <main class="contact-container">
         
-        <!-- ส่วนหัวข้อหลักจัดชิดซ้าย -->
         <div class="page-header">
             <div class="page-header-decor"></div>
             <h1>ช่องทางการติดต่อ</h1>
@@ -374,8 +359,9 @@
             
         </div>
 
-                <div class="nav-btn-container" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 40px 20px 20px 20px; box-sizing: border-box; grid-column: 1 / -1; clear: both; margin-top: 40px;">
-            <a href="education.html" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 8px;">
+        <!-- ปุ่มนำทางด้านล่างปรับปรุงคลาสและสไตล์ให้ตรงตามระบบ -->
+        <div class="btn-group">
+            <a href="award.html" class="btn btn-secondary">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>
@@ -383,8 +369,8 @@
                 ย้อนกลับ
             </a>
             
-            <a href="contact.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
-                ถัดไป
+            <a href="index.html" class="btn btn-primary">
+                กลับหน้าแรก
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -392,10 +378,10 @@
             </a>
         </div>
 
-    ⁠</main> <!-- แท็กปิด </main> ต้องอยู่ตรงนี้ ใต้ปุ่มนำทาง เพื่อดึงพื้นหลังกลับมา -->⁠
+    </main>
 
 
-    <!-- --- JS Script อนิเมชันพื้นหลังวิศวกรรมโยธา --- -->
+    <!-- --- JS Script อนิเมชันพื้นหลัง --- -->
     <script>
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
@@ -407,7 +393,6 @@
             height = canvas.height = window.innerHeight;
         });
 
-        // สร้าง Nodes
         const nodes = [];
         const numNodes = 18;
         for (let i = 0; i < numNodes; i++) {
@@ -420,7 +405,6 @@
             });
         }
 
-        // เฟือง
         const gears = [
             { x: 100, y: 200, radius: 60, teeth: 12, speed: 0.005, color: 'rgba(249, 115, 22, 0.08)' },
             { x: 196, y: 200, radius: 40, teeth: 8, speed: -0.0075, color: 'rgba(30, 41, 59, 0.25)', strokeColor: 'rgba(249, 115, 22, 0.1)' },
@@ -475,7 +459,6 @@
         function animate() {
             ctx.clearRect(0, 0, width, height);
 
-            // วาดเส้น Grid สีกรมท่า/ส้มจางๆ
             ctx.strokeStyle = 'rgba(249, 115, 22, 0.035)';
             ctx.lineWidth = 1;
             const gridSize = 45;
@@ -486,11 +469,9 @@
                 ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
             }
 
-            // หมุนเฟือง
             gears.forEach(drawGear);
             angleOffset += 0.01;
 
-            // วาด Node และคานถัก
             for (let i = 0; i < nodes.length; i++) {
                 const p1 = nodes[i];
                 p1.x += p1.vx;
