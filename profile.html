@@ -93,7 +93,7 @@
             background: var(--accent-soft);
         }
 
-        /* Main Content Container (โครงสร้างเดียวกับหน้า Education) */
+        /* Main Content Container */
         .content-container {
             flex: 1;
             max-width: 1000px;
@@ -103,7 +103,6 @@
             z-index: 10;
         }
 
-        /* ปรับดีไซน์ส่วน Header เพื่อจัดวางตำแหน่งขีดสีส้มด้านซ้ายให้ชิดซ้ายสวยงามเหมือนหน้าการศึกษา */
         .page-header {
             text-align: left;
             margin-bottom: 3rem;
@@ -111,7 +110,6 @@
             align-items: center;
         }
 
-        /* เพิ่มคลาสสไตล์ขีดตั้งสีส้มข้างหน้าหัวข้อ */
         .page-header-decor {
             width: 6px;
             height: 44px;
@@ -128,7 +126,7 @@
             line-height: 1.1;
         }
 
-        /* Layout Grid สำหรับแยกส่วนรูปภาพกับข้อมูลประวัติ */
+        /* Layout Grid */
         .profile-grid {
             display: grid;
             grid-template-columns: 320px 1fr;
@@ -188,7 +186,7 @@
             object-fit: cover;
         }
 
-        /* Info Blocks / Cards Style (ถอดดีไซน์สไตล์เดียวกับ Education) */
+        /* Info Blocks / Cards Style */
         .info-timeline {
             display: flex;
             flex-direction: column;
@@ -300,7 +298,7 @@
             transform: translateY(-1px);
         }
 
-        /* Navigation Buttons Bottom (ระบบโครงสร้าง Flex เดียวกับ Education) */
+        /* Navigation Buttons Bottom */
         .btn-group {
             display: flex;
             justify-content: space-between;
@@ -395,7 +393,7 @@
 
     <canvas class="bg-canvas" id="canvas"></canvas>
 
-    <!-- Header Navigation Bar คงเดิม -->
+    <!-- Header Navigation Bar -->
     <nav>
         <div class="logo">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="#f97316" xmlns="http://www.w3.org/2000/svg">
@@ -412,10 +410,9 @@
         </ul>
     </nav>
 
-    <!-- Main Content Layout สไตล์เดียวกับหน้า Education -->
+    <!-- Main Content Layout -->
     <main class="content-container">
         
-        <!-- ส่วนนี้ได้รับการปรับปรุงโดยการเพิ่มคลาส page-header-decor เพื่อให้แสดงขีดสีส้มด้านซ้ายเลียนแบบดีไซน์หน้าการศึกษา -->
         <div class="page-header">
             <div class="page-header-decor"></div>
             <h1>ประวัติส่วนตัว</h1>
@@ -427,7 +424,6 @@
             <div class="blueprint-frame">
                 <div class="blueprint-grid"></div>
                 <div class="profile-img-holder">
-                    <!-- ดึงข้อมูลภาพโครงสร้างเดิมของคุณแอนฟิลด์มาแสดงผล -->
                     <img src="images/IMG_0566.jpeg" alt="รูปภาพแอนฟิลด์">
                 </div>
             </div>
@@ -455,12 +451,14 @@
                             <span class="info-value">มัธยมศึกษาปีที่ 6</span>
                         </div>
                         <div class="info-item">
-                            <span class="info-label">วัน/เดือน/ปีเกิด</span>
-                            <span class="info-value">13 สิงหาคม 2551</span>
-                        </div>
+                           
                         <div class="info-item">
                             <span class="info-label">อายุ</span>
-                            <span class="info-value">17</span>
+                            <span class="info-value">17 ปี</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">วัน/เดือน/ปีเกิด</span>
+                            <span class="info-value">13 สิงหาคม 2551</span>
                         </div>
                     </div>
                 </div>
@@ -491,18 +489,14 @@
                     </h2>
                     <div class="info-details">
                         <div class="info-item full-width">
-                        
                             <div class="skills-container">
                                 <span class="skill-badge">วาดภาพ</span>
-                                
                                 <span class="skill-badge">การคำนวณเบื้องต้น</span>
                             </div>
                         </div>
                         <div class="info-item full-width">
-                         
                             <div class="skills-container">
                                 <span class="skill-badge">ฟุตซอล (Futsal)</span>
-                                
                             </div>
                         </div>
                     </div>
@@ -511,7 +505,7 @@
             </div>
         </div>
 
-        <!-- ปุ่มควบคุมนำทางด้านล่างสไตล์เดียวกับหน้า Education ประยุกต์ใช้ Flex ชิดซ้าย-ขวา -->
+        <!-- ปุ่มควบคุมนำทางด้านล่าง -->
         <div class="btn-group">
             <a href="index.html" class="btn btn-secondary">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
@@ -525,7 +519,7 @@
 
     </main>
 
-    <!-- Script สำหรับวาดอนิเมชันโครงสร้างวิศวกรรมสไตล์เดียวกับหน้าอื่น ๆ -->
+    <!-- Script สำหรับวาดอนิเมชันโครงสร้างวิศวกรรม -->
     <script>
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
